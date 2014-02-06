@@ -4,7 +4,7 @@
 
 enum kTag
 {
-	kTagBallNode,
+	kTagBall,
 };
 
 enum kZOrder

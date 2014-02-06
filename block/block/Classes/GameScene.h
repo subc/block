@@ -9,12 +9,15 @@
 class GameScene : public cocos2d::CCLayerColor
 {
 public:
+    GameScene();
     virtual bool init();
     static cocos2d::CCScene* scene();
     void menuCloseCallback(CCObject* pSender);
     CREATE_FUNC(GameScene);
 
 private:
+    CCSize    winSize;
+    int       score;
     void initForVariables();
     void createBackground();
     void createBall(kTag tag, kBall type, CCPoint spawnPoint);

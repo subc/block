@@ -4,6 +4,13 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
+GameScene::GameScene()
+:winSize(CCDirector::sharedDirector()->getWinSize())
+,score(0)
+{
+//    srand((unsigned)time(NULL));
+}
+
 CCScene* GameScene::scene()
 {
     CCScene *scene = CCScene::create();
@@ -33,14 +40,14 @@ bool GameScene::init()
     return true;
 }
 
-// 1秒毎に実行
+// フレーム毎に実行
 void GameScene::update(float delta)
 {
-    if (rand()%100 > 10)
+    if (rand()%100 > 95)
     {
-
+        createBall(kTagBall, kBall01, ccp(winSize.width - 200, winSize.height - 200));
+        CCLOG("create kBall01");
     }
-    CCLOG("%d", rand());
 }
 
 void GameScene::createBall(kTag tag, kBall type, CCPoint spawnPoint)
@@ -48,6 +55,9 @@ void GameScene::createBall(kTag tag, kBall type, CCPoint spawnPoint)
     BallSprite* ball = BallSprite::create(tag, type);
     ball->setPosition(spawnPoint);
     this->addChild(ball, kZOrderBall, tag);
+
+    CCAction* action = CCMoveTo::create(1.0f, ccp(ball->getPositionX() - 700, ball->getPositionY() - rand()%200 ));
+    ball->runAction(action);
 }
 
 // リソースを生成
