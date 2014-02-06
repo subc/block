@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611FFE7618A3622B00F7F04D /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 611FFE7518A3622B00F7F04D /* ball.png */; };
+		614BC2CE18A0E914001B9F5F /* BallSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614BC2CD18A0E914001B9F5F /* BallSprite.cpp */; };
 		61FE72301892587600109E5C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FE722F1892587600109E5C /* QuartzCore.framework */; };
 		61FE72321892587600109E5C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FE72311892587600109E5C /* OpenGLES.framework */; };
 		61FE72341892587600109E5C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FE72331892587600109E5C /* OpenAL.framework */; };
@@ -279,10 +281,14 @@
 		61FE75C51892587B00109E5C /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = 61FE75C41892587B00109E5C /* cpVect.c */; };
 		61FE75CD1892587B00109E5C /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FE75CC1892587B00109E5C /* libwebsockets.a */; };
 		61FE75D31892587B00109E5C /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61FE75D21892587B00109E5C /* AppDelegate.cpp */; };
-		61FE75D61892587B00109E5C /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61FE75D51892587B00109E5C /* HelloWorldScene.cpp */; };
+		61FE75D61892587B00109E5C /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61FE75D51892587B00109E5C /* GameScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		611FFE7518A3622B00F7F04D /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = ../../../Desktop/ball.png; sourceTree = "<group>"; };
+		614BC2CB18A0D467001B9F5F /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Classes/Config.h; sourceTree = "<group>"; };
+		614BC2CC18A0E901001B9F5F /* BallSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BallSprite.h; path = Classes/BallSprite.h; sourceTree = "<group>"; };
+		614BC2CD18A0E914001B9F5F /* BallSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BallSprite.cpp; path = Classes/BallSprite.cpp; sourceTree = "<group>"; };
 		61FE722C1892587600109E5C /* block.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = block.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FE722F1892587600109E5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		61FE72311892587600109E5C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -871,8 +877,8 @@
 		61FE75CF1892587B00109E5C /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		61FE75D11892587B00109E5C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		61FE75D21892587B00109E5C /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		61FE75D41892587B00109E5C /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		61FE75D51892587B00109E5C /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		61FE75D41892587B00109E5C /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
+		61FE75D51892587B00109E5C /* GameScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Classes/GameScene.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -944,6 +950,7 @@
 		61FE72401892587600109E5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				611FFE7518A3622B00F7F04D /* ball.png */,
 				61FE72411892587600109E5C /* CloseNormal.png */,
 				61FE72431892587600109E5C /* CloseSelected.png */,
 				61FE72451892587600109E5C /* Default.png */,
@@ -2095,8 +2102,11 @@
 			children = (
 				61FE75D11892587B00109E5C /* AppDelegate.h */,
 				61FE75D21892587B00109E5C /* AppDelegate.cpp */,
-				61FE75D41892587B00109E5C /* HelloWorldScene.h */,
-				61FE75D51892587B00109E5C /* HelloWorldScene.cpp */,
+				61FE75D41892587B00109E5C /* GameScene.h */,
+				61FE75D51892587B00109E5C /* GameScene.cpp */,
+				614BC2CB18A0D467001B9F5F /* Config.h */,
+				614BC2CC18A0E901001B9F5F /* BallSprite.h */,
+				614BC2CD18A0E914001B9F5F /* BallSprite.cpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2161,6 +2171,7 @@
 				61FE72561892587600109E5C /* iTunesArtwork in Resources */,
 				61FE72501892587600109E5C /* Icon-Small@2x.png in Resources */,
 				61FE72461892587600109E5C /* Default.png in Resources */,
+				611FFE7618A3622B00F7F04D /* ball.png in Resources */,
 				61FE72441892587600109E5C /* CloseSelected.png in Resources */,
 				61FE72541892587600109E5C /* Icon@2x.png in Resources */,
 				61FE74691892587900109E5C /* project.pbxproj in Resources */,
@@ -2261,6 +2272,7 @@
 				61FE74391892587900109E5C /* CCTileMapAtlas.cpp in Sources */,
 				61FE73261892587700109E5C /* CCScene.cpp in Sources */,
 				61FE75BB1892587A00109E5C /* cpSpaceHash.c in Sources */,
+				614BC2CE18A0E914001B9F5F /* BallSprite.cpp in Sources */,
 				61FE74051892587800109E5C /* TGAlib.cpp in Sources */,
 				61FE72961892587600109E5C /* CCConfiguration.cpp in Sources */,
 				61FE72801892587600109E5C /* CCActionPageTurn3D.cpp in Sources */,
@@ -2398,7 +2410,7 @@
 				61FE73841892587700109E5C /* CCImage.mm in Sources */,
 				61FE759D1892587A00109E5C /* cpRatchetJoint.c in Sources */,
 				61FE759B1892587A00109E5C /* cpPivotJoint.c in Sources */,
-				61FE75D61892587B00109E5C /* HelloWorldScene.cpp in Sources */,
+				61FE75D61892587B00109E5C /* GameScene.cpp in Sources */,
 				61FE73D21892587800109E5C /* CCAnimationCache.cpp in Sources */,
 				61FE758F1892587A00109E5C /* cpConstraint.c in Sources */,
 				61FE733D1892587700109E5C /* CCMotionStreak.cpp in Sources */,
@@ -2564,6 +2576,7 @@
 				61FE75DB1892587B00109E5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
