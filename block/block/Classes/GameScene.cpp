@@ -47,7 +47,47 @@ void GameScene::update(float delta)
     {
         createBall(kTagBall, kBall01, ccp(winSize.width - 200, winSize.height - 200));
         CCLOG("create kBall01");
+        CCLOG("floats: %f", winSize.width);
+
     }
+
+    // tagでget
+    CCObject* obj = NULL;
+	CCARRAY_FOREACH(this->getChildren(), obj)
+	{
+        CCNode* child = dynamic_cast<CCNode*>(obj);
+        if (child->getTag() == kTagBall)
+        {
+            BallSprite* ball = dynamic_cast<BallSprite*>(child);
+            // 弾を反射
+            if (ball->getPositionX() == 100) {
+//                CCLOG("@floats: %f", winSize.width);
+//                CCAction* action = CCMoveTo::create(1.0f, ccp((winSize.width - 200), ball->getPositionY() * 2 - (winSize.height - 200)));
+
+                // 弾が倍速になる
+//                float h = ball->getPositionY() * 2 - (winSize.height - 200);
+//                CCAction* action = CCMoveTo::create(1.0f, ccp(960, h));
+//                action->setTag(kActionTagBall);
+//                ball->stopActionByTag(kActionTagBall);
+//                ball->runAction(action);
+                ball->stopActionByTag(kActionTagBall);
+                float h = ball->getPositionY() * 2 - (winSize.height - 200);
+                CCAction* action = ball->getActionByTag(kActionTagBall);
+                action = CCMoveTo::create(0.5f, ccp(960, h));
+                ball->runAction(action);
+
+                CCLOG("@floats: %f", h);
+
+            }
+
+            // 画面外の弾をremove
+            if (ball->getPositionX() < 0) {
+                ball->removeFromParentAndCleanup(true);
+                CCLOG("remove kBall01");
+            }
+        }
+    }
+
 }
 
 void GameScene::createBall(kTag tag, kBall type, CCPoint spawnPoint)
@@ -56,7 +96,8 @@ void GameScene::createBall(kTag tag, kBall type, CCPoint spawnPoint)
     ball->setPosition(spawnPoint);
     this->addChild(ball, kZOrderBall, tag);
 
-    CCAction* action = CCMoveTo::create(1.0f, ccp(ball->getPositionX() - 700, ball->getPositionY() - rand()%200 ));
+    CCAction* action = CCMoveTo::create(1.0f, ccp(100, ball->getPositionY() - rand()%500 ));
+    action->setTag(kActionTagBall);
     ball->runAction(action);
 }
 

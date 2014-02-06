@@ -12,6 +12,11 @@ enum kZOrder
     kZOrderBall,
 };
 
+enum kActionTag
+{
+    kActionTagBall,
+};
+
 enum Config
 {
     max_create = 100,
